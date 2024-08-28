@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() { 
+  int tamanho = 1000;
+  int casas[tamanho][tamanho];
+  int l, c;
+  
+  cin >> l >> c;
+
+  for (int i = 0; i < l; i++){
+      for (int j = 0; j < c; j = j+2){
+        if (i % 2 == 0){
+            casas[i][j] = 1;
+            casas[i][j+1] = 0;
+        }
+        else{
+            casas[i][j] = 0;
+            casas[i][j+1] = 1;
+        }
+     }
+  }
+    cout << casas[l-1][c-1] << " ";
+
+  return 0;
+}
