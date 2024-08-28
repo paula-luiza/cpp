@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+#define TAM 100000
+using namespace std;
+
+int main() { 
+  long int n, r;
+
+  while(cin >> n >> r){
+    int mortos[TAM] = {};
+    int ids[TAM] = {};
+    int k = 0;
+    
+    for (int i = 0; i < r; i++){
+      cin >> ids[i];
+    }
+
+    for (int i = 1; i <= n; i++){
+      bool vivo = false;
+      
+      for (int j = 0; j < r; j++){
+        if (i == ids[j]){
+          vivo = true;
+        }
+      }
+      
+      if (vivo == false){
+        mortos[k] = i;
+        k++;
+      } 
+    }
+
+    int p = 0;
+    if (mortos[p] == '\0'){
+      cout << "*";
+    }
+    while (mortos[p] != '\0'){
+      cout << mortos[p] << " ";
+      p++;
+    }
+    
+    cout << endl;
+    
+  }
+
+  return 0;
+}
