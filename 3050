@@ -15,13 +15,18 @@ int main() {
     }
     
     for (int i = 0; i < n; i++){
-        for (int j = n; j >= i; j--){
+        for (int j = n-1; j >= i; j--){
             int p = abs(i-j);
             
-            for (int k = 0; k < a[i]; k++){
-                for (int m = 0; m < a[j]; m++){
-                    dist = a[k] + p + a[m];
-
+            for (int k = 0; k <= a[i]; k++){
+                for (int m = 0; m <= a[j]; m++){
+                    if (j == i){
+                        dist = k - m;
+                    }
+                    else{
+                       dist = k + p + m; 
+                    }
+                    
                     if (dist > max){
                         max = dist;
                     }
